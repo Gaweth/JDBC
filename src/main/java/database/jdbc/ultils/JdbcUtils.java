@@ -10,7 +10,7 @@ public class JdbcUtils {
 
    private Connection connection;
 
-   public  static JdbcUtils GetInstance(){
+   public  static JdbcUtils getInstance(){
        if(instance==null) {
            instance = new JdbcUtils();
        }

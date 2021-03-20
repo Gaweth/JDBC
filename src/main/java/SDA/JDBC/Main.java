@@ -4,7 +4,6 @@ import database.jdbc.ultils.JdbcUtils;
 
 
 import java.sql.*;
-import java.util.Properties;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
@@ -14,7 +13,7 @@ public class Main {
 
     private static void insertTest() throws SQLException {
         Statement statement = JdbcUtils
-                .GetInstance()
+                .getInstance()
                 .getConnection()
                 .createStatement();
 
@@ -27,7 +26,7 @@ public class Main {
 
     private static void deleteById(int id) throws SQLException {
         Statement statement = JdbcUtils
-                .GetInstance()
+                .getInstance()
                 .getConnection()
                 .createStatement();
         statement.executeUpdate("DELETE FROM runs WHERE id= " + id);
@@ -35,7 +34,7 @@ public class Main {
     }
 
     private static void updateRun(int id, String name, int membersLimit) throws SQLException {
-        Connection connection = JdbcUtils.GetInstance().getConnection();
+        Connection connection = JdbcUtils.getInstance().getConnection();
         PreparedStatement statement = connection
                 .prepareStatement("UPDATE runs SET name=?, members_limit=? WHERE id=?");
 
@@ -47,7 +46,7 @@ public class Main {
     }
 
     private static void printAlldata() throws SQLException {
-        Connection connection = JdbcUtils.GetInstance().getConnection();
+        Connection connection = JdbcUtils.getInstance().getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM runs");
 

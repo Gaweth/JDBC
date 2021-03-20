@@ -10,5 +10,8 @@ public interface RunDao  {
     List<Run> findAll() throws SQLException;    // R
     Run findById(int id) throws SQLException;   // R
     void update(Run run) throws SQLException;   // U
-    void deleteByid(int id) throws SQLException;// D
+    void deleteById(int id) throws SQLException;// D
+
+    List<Run> findByNameFragment(String fragment) throws SQLException;
+    List<Run> findByMemberLimitRange(int min, int max) throws SQLException;
 }
